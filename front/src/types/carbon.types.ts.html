@@ -1,0 +1,17 @@
+export enum VehicleType {
+  ELECTRIC = "ELECTRIC",
+  DIESEL = "DIESEL",
+  HYBRID = "HYBRID"
+}
+
+export interface CarbonRequest {
+  vehicleType: VehicleType;
+  distance: number;
+  weight: number;
+  efficiency: number;
+}
+
+export interface CarbonResponse {
+  co2: number;
+  unit: string;
+}

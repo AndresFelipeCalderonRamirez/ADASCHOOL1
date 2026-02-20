@@ -1,0 +1,16 @@
+import axios from "axios";
+import { CarbonRequest, CarbonResponse } from "../types/carbon.types";
+
+const api = axios.create({
+  baseURL: "http://localhost:8000/carbon",
+  headers: {
+    "Content-Type": "application/json"
+  }
+});
+
+export const calculateCarbon = async (
+  payload: CarbonRequest
+): Promise<CarbonResponse> => {
+  const response = await api.post<CarbonResponse>("/calculate", payload);
+  return response.data;
+};
